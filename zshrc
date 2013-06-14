@@ -57,6 +57,7 @@ prompt gentoo
 source /etc/zsh/zshprompt
 
 # completion
+zstyle ':completion::complete:*' use-cache 1
 zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}'
 zstyle ':completion:*' max-errors 3 numeric
 zstyle ':completion:*' use-compctl false
