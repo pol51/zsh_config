@@ -29,8 +29,10 @@ alias http-server='python -m SimpleHTTPServer'
 # C/C++
 alias bcpp='bcpp -s -i 2'
 
+alias make='make -j$(echo "scale=0;$(nproc)*1.5/1" | bc)'
+
 # Gentoo
-alias emerge='emerge --tree --jobs=8'
+alias emerge='emerge --tree --jobs=$(A=$(nproc) B=$(( A / 2 )); echo $(( B < 1 ? 1 : B )))'
 alias unmerge='emerge --unmerge'
 alias update='eix-sync'
 alias upgrade='emerge --keep-going --ask --update --newuse --deep world'
