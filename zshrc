@@ -6,6 +6,7 @@
 alias l1='/bin/ls -1hNT 0 --color=auto'
 alias ls='ls -hNFT 0 --color=auto'
 alias ll='ls -l'
+alias lt='ls -ltr'
 alias la='ls -a'
 alias lla='ls -la'
 
@@ -34,17 +35,11 @@ alias make='make -j$(echo "scale=0;$(nproc)*1.5/1" | bc)'
 # Gentoo
 alias emerge='emerge --tree --jobs=$(A=$(nproc) B=$(( A / 2 )); echo $(( B < 1 ? 1 : B )))'
 alias unmerge='emerge --unmerge'
-alias update='eix-sync'
-alias upgrade='emerge --keep-going --ask --update --newuse --deep world'
-alias up-live='emerge --oneshot @live-rebuild'
-alias up='update && upgrade'
-alias rebuild_world='emerge --keep-going world'
-alias which-package='equery belongs'
-alias which-use='equery hasuse'
+alias upgrade='emerge --keep-going --ask --newuse --update --deep @world'
 alias build-kernel='genkernel --menuconfig all'
 alias dg='ebuild $(ls -1 *.ebuild | head -n1) manifest'
 alias chk='for i in `eix "-I*" --format "<installedversions:NAMEVERSION>" --only-in-overlay`; do equery k $i; done'
-alias ls-preserved='portageq list_preserved_libs'
+alias ls-preserved='portageq list_preserved_libs /'
 
 ################################################################################
 # prompt and completion
